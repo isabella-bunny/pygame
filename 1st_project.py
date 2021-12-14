@@ -1,7 +1,7 @@
 # Pygame template - skeleton for a new pygame project
 import pygame
 import random
-import settings
+from setting import *
 
 
 # initialize pygame and create window
@@ -27,7 +27,7 @@ while running:
 
 
     # Draw / render
-    screen.fill(BLUE)
+    screen.fill(BLACK)
     all_sprites.draw(screen)
     # *after* drawing everything, flip the display
     pygame.display.flip()

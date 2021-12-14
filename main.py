@@ -3,20 +3,24 @@
 import pygame as pg
 import random
 from setting import *
+from sprites import *
 
 class Game:
-    def __init(self):
+    def __init__(self):
         # initialize game window, etc
         pg.init()
         pg.mixer.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
-        pg.display.set_caption("TITLE")
+        pg.display.set_caption("Jumpy Platformer")
         self.clock = pg.time.Clock()
         self.running = True
 
     def new(self):
         # start a new game
-        all_sprites = pg.sprite.Group()
+        self.all_sprites = pg.sprite.Group()
+        self.player = Player()
+        self.all_sprites.add(self.player)
+        self.run()
 
     def run(self):
         # Game Loop
@@ -29,7 +33,7 @@ class Game:
 
     def update(self):
         # Game Loop - Update
-        pass
+        self.all_sprites.update()
 
     def events(self):
         # Game Loop - events
@@ -42,7 +46,10 @@ class Game:
 
     def draw(self):
         # Game Loop - draw
-        pass
+        self.screen.fill(BLACK)
+        self.all_sprites.draw(self.screen)
+        # *after* drawing everything, flip the display
+        pg.display.flip()
 
     def show_start_screen(self):
         # game splash/start screen
@@ -56,6 +63,7 @@ g = Game()
 g.show_start_screen()
 while g.running:
     g.new()
-    g.show_go_screen()
+    # g.run()
+    # g.show_go_screen()
 
 pg.quit()

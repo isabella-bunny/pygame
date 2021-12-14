@@ -1,7 +1,7 @@
-WIDTH = 360
-HEIGHT = 480
-FPS = 31
-
+# game options/settings
+WIDTH = 480
+HEIGHT = 600
+FPS = 60
 
 # define colors
 RED = (255, 0, 0)
